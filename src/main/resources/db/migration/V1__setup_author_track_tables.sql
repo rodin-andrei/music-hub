@@ -16,7 +16,7 @@ create table if not exists "track"
     genre varchar(70)
 );
 
-create table if not exists track_author
+create table if not exists "track_author"
 (
     author_id int not null constraint fk_author_track references author on delete cascade,
     track_id  int not null constraint fk_track_author references track on delete cascade,
