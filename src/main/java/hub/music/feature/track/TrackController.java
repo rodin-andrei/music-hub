@@ -22,7 +22,7 @@ public class TrackController {
         return trackService.queryAll();
     }
 
-    @GetMapping("/create")
+    @PutMapping("/create")
     public Track create(@RequestParam String genre, @RequestParam Integer time) {
         return trackService.save(Track.builder()
                 .time(time)
@@ -36,7 +36,7 @@ public class TrackController {
     }
 
     @PutMapping("/{id}")
-    public void updateAuthor(@PathVariable Integer id, Author author) {
+    public void updateAuthor(@PathVariable Integer id, @PathVariable Author author) {
         trackService.updateTrackAuthors(id, author);
     }
 }
