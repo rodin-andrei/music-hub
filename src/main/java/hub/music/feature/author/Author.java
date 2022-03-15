@@ -1,10 +1,7 @@
 package hub.music.feature.author;
 
 import hub.music.feature.track.Track;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,6 +16,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "author",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Track> tracks;
 

@@ -1,5 +1,6 @@
 package hub.music.feature.track;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hub.music.feature.author.Author;
 import lombok.*;
 
@@ -13,11 +14,14 @@ import java.util.Set;
 @AllArgsConstructor
 public class Track {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String title;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
     @ManyToMany( fetch = FetchType.EAGER)
     @JoinTable(
             name = "track_author",

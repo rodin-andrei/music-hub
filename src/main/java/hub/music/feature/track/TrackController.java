@@ -23,11 +23,18 @@ public class TrackController {
     }
 
     @PutMapping("/create")
-    public Track create(@RequestParam String genre, @RequestParam Integer time) {
-        return trackService.save(Track.builder()
+    public Track create(@RequestParam String genre,
+                        @RequestParam Integer time,
+                        @RequestParam String title,
+                        @RequestParam Integer authorId) {
+        Track track = trackService.save(Track.builder()
                 .time(time)
                 .genre(genre)
+                .title(title)
                 .build());
+        trackService.addNewAuthorToTrack(authorId, track.getId());
+
+        return track;
     }
 
     @DeleteMapping("/{id}")
@@ -35,8 +42,8 @@ public class TrackController {
         trackService.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    public void updateAuthor(@PathVariable Integer id, @PathVariable Author author) {
-        trackService.updateTrackAuthors(id, author);
+    @PostMapping("/updateTrackAuthors")
+    public void updateTrackAuthors(@RequestParam Integer trackId, @RequestParam Integer authorId) {
+        trackService.addNewAuthorToTrack(authorId, trackId);
     }
 }
