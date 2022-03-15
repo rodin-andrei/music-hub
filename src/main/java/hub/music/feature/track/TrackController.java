@@ -30,6 +30,11 @@ public class TrackController {
                 .build());
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        trackService.deleteById(id);
+    }
+
     @PutMapping("/{id}")
     public void updateAuthor(@PathVariable Integer id, Author author) {
         trackService.updateTrackAuthors(id, author);
