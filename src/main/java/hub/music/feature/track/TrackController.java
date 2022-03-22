@@ -43,7 +43,8 @@ public class TrackController {
     }
 
     @PostMapping("/updateTrackAuthors")
-    public void updateTrackAuthors(@RequestParam Integer trackId, @RequestParam Integer authorId) {
+    public void updateTrackAuthors(@RequestParam Integer trackId,
+                                   @RequestParam Integer authorId) {
         trackService.addNewAuthorToTrack(authorId, trackId);
     }
 }
