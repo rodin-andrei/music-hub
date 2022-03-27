@@ -32,11 +32,11 @@ public class AuthorController {
 
     @PutMapping("/create")
     public Author create(@RequestParam String firstname, @RequestParam String lastname,
-                         @RequestParam String psevdonym) {
+                         @RequestParam String pseudonym) {
         return authorService.save(Author.builder()
                 .firstname(firstname)
                 .lastname(lastname)
-                .pseudonym(psevdonym)
+                .pseudonym(pseudonym)
                 .build());
     }
 
