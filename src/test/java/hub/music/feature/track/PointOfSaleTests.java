@@ -59,18 +59,21 @@ public class PointOfSaleTests {
                 .offsetGMT(0)
                 .build());
 
-        pointOfSale2.setTitle("Berlin-Sity");
-        pointOfSale2.setLatitude(0.278878f);
-        pointOfSale2.setLongitude(0.56878f);
-        pointOfSale2.setOffsetGMT(-1);
 
-        PointOfSale expectedPointOfSale = pointOfSale2;
 
-        pointOfSaleService.updateTitle(2, "Berlin-Sity");
-        pointOfSaleService.updateLocation(2, 0.278878f, 0.56878f);
-        pointOfSaleService.updateOffsetGMT(2, -1);
+        pointOfSaleService.updateTitle( pointOfSale2.getId(), "Berlin-Sity");
+        pointOfSaleService.updateLocation(pointOfSale2.getId(), 0.278878f, 0.56878f);
+        pointOfSaleService.updateOffsetGMT(pointOfSale2.getId(), -1);
 
-        PointOfSale actualPointOfSale = pointOfSaleService.getById(2);
+        PointOfSale expectedPointOfSale = PointOfSale.builder()
+                .id(pointOfSale2.getId())
+                .title("Berlin-Sity")
+                .latitude(0.278878f)
+                .longitude(0.56878f)
+                .offsetGMT(-1)
+                .build();
+
+        PointOfSale actualPointOfSale = pointOfSaleService.getById(pointOfSale2.getId());
 
         Assertions.assertEquals(expectedPointOfSale, actualPointOfSale);
     }
@@ -100,8 +103,7 @@ public class PointOfSaleTests {
                 .offsetGMT(0)
                 .build());
 
-        pointOfSaleService.deleteById(2);
-
+        pointOfSaleService.deleteById(pointOfSale2.getId());
         List expectedPointOfSaleList = List.of(pointOfSale1, pointOfSale3);
 
         Assertions.assertEquals(2,pointOfSaleService.queryAll().size());
