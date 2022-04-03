@@ -4,6 +4,7 @@ create table if not exists "client"
     firstname varchar(70),
     lastname varchar(70),
     mobile_phone varchar(70),
-    email varchar(70)
+    email varchar(70),
+    password varchar(70)
 
 );

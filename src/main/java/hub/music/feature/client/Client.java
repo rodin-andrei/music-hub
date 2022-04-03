@@ -1,8 +1,10 @@
 package hub.music.feature.client;
 
+import hub.music.feature.pointOfSale.PointOfSale;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -23,5 +25,10 @@ public class Client {
     private String mobilePhone;
 
     private String email;
+
+    private String password;
+
+    @OneToMany(mappedBy = "client")
+    private Set<PointOfSale> pointsOfSale;
 
 }

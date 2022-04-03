@@ -1,55 +1,44 @@
 <html>
+<head>
+    <style>
+        .zag{
+            color: blue;
+        }
+        th.zag {
+            color: #ff0000;
+        }
+
+        #idTh {
+            color: #00FF00;
+        }
+
+        h3 {
+            color: #0000FF;
+        }
+
+        tbody tr:nth-child(2n+3) {
+            background-color:#bbbbbb;
+        }
+
+    </style>
+</head>
 <body>
-
 <h3>SetOfPointOfSale</h3>
-<table width="100%" border="1">
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <tr>
-        <th>id</th>
-        <th>title</th>
-        <th>latitude</th>
-        <th>longitude</th>
-        <th>offsetGMT</th>
-        <th>Delete PointOfSale</th>
-    </tr>
-    <tr>
-        <td>
-        id
-        </td>
-        <td>title
-            <form name="input" action="вызов метода updateTitle for PointOfSale" method="post">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-
-        <td>latitude
-            <form name="input" action="вызов метода updateLatitude for PointOfSale" method="post">
-                <input type="submit" value="Update"/>
-            </form>`
-        </td>
-        <td>longitude
-            <form name="input" action="вызов метода updateLongitude for PointOfSale" method="post">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>offsetGMT
-            <form name="input" action="вызов метода updateOffsetGMT for PointOfSale" method="post">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>
-            <form name="input" action="вызов метода deletePointOfSale" method="delete">
-                <input type="submit" value="DELETE"/>
-            </form>
-        </td>
-    </tr>
-
+<table width="100%" border="1" id="tableData">
+    <tbody>
+        <tr>
+            <th id="idTH" class="zag">id</th>
+            <th class="zag">title</th>
+            <th class="zag">latitude</th>
+            <th class="zag">longitude</th>
+            <th class="zag">offsetGMT</th>
+            <th class="zag">Delete PointOfSale</th>
+        </tr>
+    </tbody>
 </table>
 
+
+<script src="test.js"></script>
 </body>
 </html>
 

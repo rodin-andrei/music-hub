@@ -1,5 +1,6 @@
 package hub.music.feature.pointOfSale;
 
+import hub.music.feature.client.Client;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,5 +22,9 @@ public class PointOfSale {
     private float longitude;
 
     private int offsetGMT;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
 }
