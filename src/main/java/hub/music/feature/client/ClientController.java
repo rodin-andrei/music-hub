@@ -54,6 +54,12 @@ public class ClientController {
     public void updateClientEmail(@RequestParam Integer id,@RequestParam String email) {
         clientService.updateClientEmail(id, email);
     }
+
+    @PutMapping ("/updatePassword")
+    public void updateClientPassword(@RequestParam Integer id,@RequestParam String password) {
+        clientService.updateClientPassword(id, password);
+    }
+
     @DeleteMapping("/{id}")
     public void  delete(@PathVariable Integer id) {
         clientService.deleteById(id);

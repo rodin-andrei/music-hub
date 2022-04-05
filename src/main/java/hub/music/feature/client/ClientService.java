@@ -31,4 +31,10 @@ public class ClientService extends CrudService <Client, Integer>{
         save(clientByID);
     }
 
+    public void updateClientPassword (Integer id,String password){
+        Client clientByID = getById(id);
+        clientByID.setEmail(password);
+        save(clientByID);
+    }
+
 }
