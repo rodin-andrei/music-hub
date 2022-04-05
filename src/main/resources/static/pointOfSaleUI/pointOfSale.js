@@ -29,16 +29,37 @@
                                </form>\
                             </div>\
                        </td>\
-                       <td>longitude\
-                           <form name="input" action="" method="post">\
-                               <input  type="submit" value="Update"/>\
-                           </form>\
+                       \
+                       <td>\
+                         <div id="cellLongitude{{id}}">\
+                             longitude {{id}}\
+                               <button type="button" name="UpdateLongitude" onclick="showForm(\'longitudeFrom{{id}}\', \'cellLongitude{{id}}\' )">\
+                                  <img src="image/edit.png" alt="Update" title="Update" width="15" height="15"/>\
+                               </button>\
+                         </div>\
+                          <div id="longitudeFrom{{id}}" style="display:none;">\
+                               <form name="input" action="" method="post" >\
+                                   <input name="longitude" type="text" value="{{longitude}}"/>\
+                                   <input  type="submit">\
+                               </form>\
+                          </div>\
                        </td>\
-                       <td>offsetGMT\
-                           <form name="input" action="" method="post">\
-                               <input type="submit" value="Update"/>\
-                           </form>\
+                       \
+                       <td>\
+                      <div id="cellOffsetGMT{{id}}">\
+                            offsetGMT {{id}}\
+                                <button type="text" name="UpdateOffsetGMT" onclick="showForm(\'fromOffsetGMT{{id}}\', \'cellOffsetGMT{{id}}\' )">\
+                                <img src="image/edit.png" alt="Update" title="Update" width="15" height="15">\
+                            </button>\
+                      </div>\
+                          <div id="fromOffsetGMT{{id}}" style="display:none;">\
+                               <form name="input" action="" method="post">\
+                                   <input name="title" type="text" value="{{offsetGMT}}">\
+                                   <input type="submit" />\
+                               </form>\
+                           </div>\
                        </td>\
+                       \
                        <td>\
                            <form name="input" action="" method="delete">\
                                <input type="submit" value="DELETE"/>\
@@ -61,7 +82,10 @@
         newRow.innerHTML = rowTemplate
                     .replaceAll("{{id}}", i+1)
                     .replaceAll("{{latitude}}", "latitude"+(i+1))
+                    .replaceAll("{{longitude}}", "longitude"+(i+1))
+                    .replaceAll("{{offsetGMT}}", "offsetGMT"+(i+1))
                     .replaceAll("{{title}}", "title"+(i+1));
+
         tbodyElement.append(newRow);
     }
 
@@ -72,10 +96,5 @@
        var cell = document.getElementById(cellName);
             cell.style.display = "none";
 
-    }
-
-    function hideButton(buttonId){
-        var buttonElement = document.getElementById(buttonId);
-        buttonElement.style.display = "none";
     }
 
