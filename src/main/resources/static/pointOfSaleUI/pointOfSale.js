@@ -72,8 +72,8 @@
     var tbodyElement;
     for (var i = 0; i < table.childNodes.length; i++) {
         if (table.childNodes[i].tagName == "TBODY") {
-          tbodyElement = table.childNodes[i]
-          break
+          tbodyElement = table.childNodes[i];
+          break;
         }
     }
 
@@ -90,11 +90,11 @@
     }
 
     function showForm(formName, cellName){
-         var form = document.getElementById(formName);
+        var form = document.getElementById(formName);
         form.style.display = "block";
 
-       var cell = document.getElementById(cellName);
-            cell.style.display = "none";
+        var cell = document.getElementById(cellName);
+        cell.style.display = "none";
 
     }
 

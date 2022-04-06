@@ -1,42 +1,44 @@
 <html>
-<body>
-<head>
-    <style>
-        .zag{
-            color: blue;
-        }
-        th.zag {
-            color: #ff0000;
-        }
+    <head>
+        <style>
+            .zag{
+                color: blue;
+            }
+            th.zag {
+                color: #ff0000;
+            }
 
-        #idTh {
-            color: #00FF00;
-        }
+            #idTh {
+                color: #00FF00;
+            }
 
-        h3 {
-            color: #0000FF;
-        }
+            h3 {
+                color: #0000FF;
+            }
 
-        tbody tr:nth-child(2n+3) {
-            background-color:#bbbbbb;
-        }
+            tbody tr:nth-child(2n+3) {
+                background-color:#bbbbbb;
+            }
 
-    </style>
-</head>
-<h3>SetOfAuthors</h3>
-<table width="100%" border="1" id="tableData">
-    <tbody>
-    <tr>
-        <th id="idTH" class="zag">id</th>
-        <th class="zag">firstname</th>
-        <th class="zag">lastname</th>
-        <th class="zag">pseudonym</th>
-        <th class="zag">Delete Author</th>
-    </tr>
+        </style>
+    </head>
+    <body>
+        <h3>SetOfAuthors</h3>
+        <table width="100%" border="1" id="tableData">
+            <tbody>
+                <tr>
+                    <th id="idTH" class="zag">id</th>
+                    <th class="zag">firstname</th>
+                    <th class="zag">lastname</th>
+                    <th class="zag">pseudonym</th>
+                    <th class="zag">Delete Author</th>
+                </tr>
+            </tbody>
+        </table>
 
-    <script src="author.js"></script>
+        <script src="author.js"></script>
 
-</body>
+    </body>
 </html>
 
 

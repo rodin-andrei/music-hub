@@ -72,13 +72,13 @@ var rowTemplate = '<td class="zag">\
     var tbodyElement;
     for (var i = 0; i < table.childNodes.length; i++) {
         if (table.childNodes[i].tagName == "TBODY") {
-          tbodyElement = table.childNodes[i]
-          break
+           tbodyElement = table.childNodes[i];
+           break;
         }
     }
 
     for(var i = 0; i< 5 ; i++){
-           var newRow =  document.createElement("tr");
+            var newRow =  document.createElement("tr");
             newRow.innerHTML = rowTemplate
                         .replaceAll("{{id}}", i+1)
                         .replaceAll("{{title}}", "title"+(i+1))
@@ -94,6 +94,6 @@ var rowTemplate = '<td class="zag">\
            form.style.display = "block";
 
            var cell = document.getElementById(cellName);
-                cell.style.display = "none";
+           cell.style.display = "none";
 
     }
