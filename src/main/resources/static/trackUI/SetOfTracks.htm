@@ -1,76 +1,49 @@
 <html>
+<head>
+    <style>
+        .zag{
+            color: blue;
+        }
+        th.zag {
+            color: #ff0000;
+        }
+
+        #idTh {
+            color: #00FF00;
+        }
+
+        h3 {
+            color: #0000FF;
+        }
+
+        tbody tr:nth-child(2n+3) {
+            background-color:#bbbbbb;
+        }
+
+    </style>
+</head>
 <body>
-
 <h3>SetOfTracks</h3>
-<table width="100%" border="1">
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <tr>
-        <th>id</th>
-        <th>title</th>
-        <th>time</th>
-        <th>genre</th>
-        <th>delete</th>
-    </tr>
-    <tr>
-        <td>
-        id
-        </td>
-        <td>title1
-            <form name="input" action="вызов метода updateAuthor" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-
-        <td>245
-            <form name="input" action="вызов метода updateTime" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>pop
-            <form name="input" action="вызов метода updateGanre" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>
-            <form name="input" action="вызов метода deleteTrack" method="delete">
-                <input type="submit" value="DELETE"/>
-            </form>
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            id
-        </td>
-        <td>title2
-            <form name="input" action="вызов метода updateAuthor" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>865
-            <form name="input" action="вызов метода updateTime" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>jazz
-            <form name="input" action="вызов метода updateGanre" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>
-            <form name="input" action="вызов метода deleteTrack" method="delete">
-                <input type="submit" value="DELETE"/>
-            </form>
-        </td>
-
-    </tr>
+<table width="100%" border="1" id="tableData">
+    <tbody>
+      <tr>
+        <th id="idTH" class="zag">id</th>
+        <th class="zag"> title</th>
+        <th class="zag"> author</th>
+        <th class="zag"> time</th>
+        <th class="zag"> genre</th>
+        <th class="zag"> delete</th>
+      </tr>
+    </tbody>
 </table>
+
+
+<script src="track.js"></script>
 
 </body>
 </html>
 
 
+
+</tr>
+</table>

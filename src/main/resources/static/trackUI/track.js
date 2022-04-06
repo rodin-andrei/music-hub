@@ -1,4 +1,4 @@
- var rowTemplate = '<td class="zag">\
+var rowTemplate = '<td class="zag">\
                            {{id}}\
                        </td>\
                        <td>\
@@ -16,45 +16,45 @@
                             </div>\
                        </td>\
                        <td>\
-                            <div id="cellLatitude{{id}}">\
-                                 {{latitude}}\
-                               <button type="button" name="UpdateLatitude" onclick="showForm(\'latitudeForm{{id}}\', \'cellLatitude{{id}}\' )">\
+                            <div id="cellAuthor{{id}}">\
+                                 {{author}}\
+                               <button type="button" name="UpdateLatitude" onclick="showForm(\'authorForm{{id}}\', \'cellAuthor{{id}}\' )">\
                                    <img src="/static/image/edit.png" alt="Update" title="Update" width="15" height="15"/>\
                                </button>\
                            </div>\
-                           <div id="latitudeForm{{id}}" style="display:none;">\
+                           <div id="authorForm{{id}}" style="display:none;">\
                                <form name="input" action="" method="post"  >\
-                                    <input name="latitude" type="text" value="{{latitude}}"/>\
+                                    <input name="author" type="text" value="{{author}}"/>\
                                     <input  type="submit">\
                                </form>\
                             </div>\
                        </td>\
                        \
                        <td>\
-                         <div id="cellLongitude{{id}}">\
-                             longitude {{id}}\
-                               <button type="button" name="UpdateLongitude" onclick="showForm(\'longitudeFrom{{id}}\', \'cellLongitude{{id}}\' )">\
+                         <div id="cellTime{{id}}">\
+                              {{time}}\
+                               <button type="button" name="UpdateTime" onclick="showForm(\'timeFrom{{id}}\', \'cellTime{{id}}\' )">\
                                   <img src="/static/image/edit.png" alt="Update" title="Update" width="15" height="15"/>\
                                </button>\
                          </div>\
-                          <div id="longitudeFrom{{id}}" style="display:none;">\
+                          <div id="timeFrom{{id}}" style="display:none;">\
                                <form name="input" action="" method="post" >\
-                                   <input name="longitude" type="text" value="{{longitude}}"/>\
+                                   <input name="time" type="text" value="{{time}}"/>\
                                    <input  type="submit">\
                                </form>\
                           </div>\
                        </td>\
                        \
                        <td>\
-                      <div id="cellOffsetGMT{{id}}">\
-                            offsetGMT {{id}}\
-                                <button type="text" name="UpdateOffsetGMT" onclick="showForm(\'fromOffsetGMT{{id}}\', \'cellOffsetGMT{{id}}\' )">\
+                      <div id="cellGenre{{id}}">\
+                             {{genre}}\
+                                <button type="text" name="UpdateGenre" onclick="showForm(\'fromGenre{{id}}\', \'cellGenre{{id}}\' )">\
                                 <img src="/static/image/edit.png" alt="Update" title="Update" width="15" height="15">\
                             </button>\
                       </div>\
-                          <div id="fromOffsetGMT{{id}}" style="display:none;">\
+                          <div id="fromGenre{{id}}" style="display:none;">\
                                <form name="input" action="" method="post">\
-                                   <input name="title" type="text" value="{{offsetGMT}}">\
+                                   <input name="genre" type="text" value="{{genre}}">\
                                    <input type="submit" />\
                                </form>\
                            </div>\
@@ -78,23 +78,22 @@
     }
 
     for(var i = 0; i< 5 ; i++){
-       var newRow =  document.createElement("tr");
-        newRow.innerHTML = rowTemplate
-                    .replaceAll("{{id}}", i+1)
-                    .replaceAll("{{latitude}}", "latitude"+(i+1))
-                    .replaceAll("{{longitude}}", "longitude"+(i+1))
-                    .replaceAll("{{offsetGMT}}", "offsetGMT"+(i+1))
-                    .replaceAll("{{title}}", "title"+(i+1));
+           var newRow =  document.createElement("tr");
+            newRow.innerHTML = rowTemplate
+                        .replaceAll("{{id}}", i+1)
+                        .replaceAll("{{title}}", "title"+(i+1))
+                        .replaceAll("{{author}}", "author"+(i+1))
+                        .replaceAll("{{time}}", "time"+(i+1))
+                        .replaceAll("{{genre}}", "genre"+(i+1));
 
-        tbodyElement.append(newRow);
-    }
+            tbodyElement.append(newRow);
+        }
 
     function showForm(formName, cellName){
-         var form = document.getElementById(formName);
-        form.style.display = "block";
+           var form = document.getElementById(formName);
+           form.style.display = "block";
 
-       var cell = document.getElementById(cellName);
-            cell.style.display = "none";
+           var cell = document.getElementById(cellName);
+                cell.style.display = "none";
 
     }
-

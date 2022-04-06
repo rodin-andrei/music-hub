@@ -1,75 +1,40 @@
 <html>
 <body>
+<head>
+    <style>
+        .zag{
+            color: blue;
+        }
+        th.zag {
+            color: #ff0000;
+        }
 
+        #idTh {
+            color: #00FF00;
+        }
+
+        h3 {
+            color: #0000FF;
+        }
+
+        tbody tr:nth-child(2n+3) {
+            background-color:#bbbbbb;
+        }
+
+    </style>
+</head>
 <h3>SetOfAuthors</h3>
-<table width="100%" border="1">
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
-    <col align="left"/>
+<table width="100%" border="1" id="tableData">
+    <tbody>
     <tr>
-        <th>id</th>
-        <th>firstname</th>
-        <th>lastname</th>
-        <th>pseudonym</th>
-        <th>Delete Author</th>
-    </tr>
-    <tr>
-        <td>
-        id
-        </td>
-        <td>firstname1
-            <form name="input" action="вызов метода updateFirstname" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-
-        <td>lastname1
-            <form name="input" action="вызов метода updateLastname" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>pseudonym1
-            <form name="input" action="вызов метода updatePseudonym" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>
-            <form name="input" action="вызов метода deleteAuthor" method="delete">
-                <input type="submit" value="DELETE"/>
-            </form>
-        </td>
+        <th id="idTH" class="zag">id</th>
+        <th class="zag">firstname</th>
+        <th class="zag">lastname</th>
+        <th class="zag">pseudonym</th>
+        <th class="zag">Delete Author</th>
     </tr>
 
-    <tr>
-        <td>
-            id
-        </td>
-        <td>firstname2
-            <form name="input" action="вызов метода updateFirstname" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-
-        <td>lastname2
-            <form name="input" action="вызов метода updateLastname" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>pseudonym2
-            <form name="input" action="вызов метода updatePseudonym" method="put">
-                <input type="submit" value="Update"/>
-            </form>
-        </td>
-        <td>
-            <form name="input" action="вызов метода deleteAuthor" method="delete">
-                <input type="submit" value="DELETE"/>
-            </form>
-        </td>
-
-    </tr>
-</table>
+    <script src="author.js"></script>
 
 </body>
 </html>
