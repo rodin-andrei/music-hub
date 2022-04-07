@@ -1,5 +1,7 @@
 package hub.music.feature.pointOfSale;
 
+import hub.music.feature.client.Client;
+import hub.music.feature.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,17 +13,22 @@ import java.util.List;
 public class PointOfSaleController {
 
     private final PointOfSaleService pointOfSaleService;
+    private final ClientService clientService;
 
     @PutMapping("/create")
     public PointOfSale create(@RequestParam String title,
                               @RequestParam float latitude,
                               @RequestParam float longitude,
-                              @RequestParam int offSet) {
+                              @RequestParam int offSet,
+                              @RequestParam Integer clientId) {
+
+        Client addClient = clientService.getById(clientId);
         return pointOfSaleService.save(PointOfSale.builder()
                 .title(title)
                 .latitude(latitude)
                 .longitude(longitude)
                 .offsetGMT(offSet)
+                .client(addClient)
                 .build());
 
     }
