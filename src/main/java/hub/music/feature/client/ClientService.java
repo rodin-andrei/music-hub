@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientService extends CrudService <Client, Integer>{
-    public ClientService (ClientRepository clientRepository) { super(clientRepository);}
+    public ClientService (ClientRepository clientRepository) {
+        super(clientRepository);
+    }
 
     public void updateClientFirstname(Integer id, String firstname){
         Client clientByID = getById(id);
@@ -19,9 +21,9 @@ public class ClientService extends CrudService <Client, Integer>{
         save(clientByID);
     }
 
-    public void updateClientMobilePhone1 (Integer id,String mobilePhone1){
+    public void updateClientMobilePhone (Integer id,String mobilePhone){
         Client clientByID = getById(id);
-        clientByID.setMobilePhone(mobilePhone1);
+        clientByID.setMobilePhone(mobilePhone);
         save(clientByID);
     }
 
@@ -33,7 +35,13 @@ public class ClientService extends CrudService <Client, Integer>{
 
     public void updateClientPassword (Integer id,String password){
         Client clientByID = getById(id);
-        clientByID.setEmail(password);
+        clientByID.setPassword(password);
+        save(clientByID);
+    }
+
+    public void updateRole (Integer id,Roles role){
+        Client clientByID = getById(id);
+        clientByID.setRole(role);
         save(clientByID);
     }
 

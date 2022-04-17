@@ -14,6 +14,8 @@ public class PointOfSaleController {
 
     private final PointOfSaleService pointOfSaleService;
     private final ClientService clientService;
+    private final PointOfSaleControllerValidationService pointOfSaleControllerValidationService;
+
 
     @PutMapping("/create")
     public PointOfSale create(@RequestParam String title,
@@ -39,8 +41,12 @@ public class PointOfSaleController {
     }
 
     @GetMapping("/{id}")
-    public PointOfSale get(@PathVariable Integer id) {
-        return pointOfSaleService.getById(id);
+    public PointOfSale get(@PathVariable Integer idPointOfSale, Integer idClient) {
+
+        pointOfSaleControllerValidationService.validationPointOfSale(
+                pointOfSaleService.getById(idPointOfSale),
+                clientService.getById(idClient));
+        return pointOfSaleService.getById(idPointOfSale);
     }
 
     @DeleteMapping("/{id}")

@@ -21,7 +21,6 @@ public class CrudService<T, ID> {
         this.executor = executor;
         this.onDeleteListeners = new CopyOnWriteArrayList<>();
         this.onSaveListeners = new CopyOnWriteArrayList<>();
-
         this.repository = (JpaRepository<T, ID>) executor;
     }
 
@@ -43,7 +42,7 @@ public class CrudService<T, ID> {
         }
 
         //noinspection OptionalGetWithoutIsPresent
-        return  repository.findById(id).get();
+        return repository.findById(id).get();
     }
 
     public void flush() {
@@ -195,14 +194,18 @@ public class CrudService<T, ID> {
 
     public interface OnDeleteListener<T> {
         void beforeDelete(T entity);
+
         void afterDelete(T entity);
+
         @SuppressWarnings("EmptyMethod")
         void beforeClear();
+
         void afterClear();
     }
 
     public interface OnSaveListener<T> {
         void beforeSave(T entity);
+
         void afterSave(T entity);
     }
 }

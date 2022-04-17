@@ -1,5 +1,6 @@
 package hub.music.feature.client;
 
+import hub.music.feature.pointOfSale.PointOfSaleControllerValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +17,15 @@ public class ClientController {
     @PutMapping("/create")
     public Client create(@RequestParam String firstname,
                          @RequestParam String lastname,
-                         @RequestParam String mobilePhone1)
-                        {
+                         @RequestParam String mobilePhone,
+                         @RequestParam String email,
+                         @RequestParam String password) {
         return clientService.save(Client.builder()
                 .firstname(firstname)
                 .lastname(lastname)
-                .mobilePhone(mobilePhone1)
+                .mobilePhone(mobilePhone)
+                .email(email)
+                .password(password)
                 .build());
     }
 
@@ -32,36 +36,42 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public Client get(@PathVariable Integer id) {
-        return clientService.getById(id);
+                return clientService.getById(id);
     }
 
-    @PutMapping ("/updateFirstname")
-    public void updateFirstname(@RequestParam Integer id,@RequestParam String firstname) {
-        clientService.updateClientFirstname(id,firstname);
+    @PutMapping("/updateFirstname")
+    public void updateFirstname(@RequestParam Integer id, @RequestParam String firstname) {
+
+        clientService.updateClientFirstname(id, firstname);
     }
 
-    @PutMapping ("/updateLastname")
-    public void updateLastname(@RequestParam Integer id,@RequestParam String lastname) {
+    @PutMapping("/updateLastname")
+    public void updateLastname(@RequestParam Integer id, @RequestParam String lastname) {
         clientService.updateClientLastname(id, lastname);
     }
 
-    @PutMapping ("/updateMobilePhone1")
-    public void updateClientMobilePhone1(@RequestParam Integer id,@RequestParam String mobilePhone1) {
-        clientService.updateClientMobilePhone1(id, mobilePhone1);
+    @PutMapping("/updateMobilePhone")
+    public void updateClientMobilePhone(@RequestParam Integer id, @RequestParam String mobilePhone) {
+        clientService.updateClientMobilePhone(id, mobilePhone);
     }
 
-    @PutMapping ("/updateEmail")
-    public void updateClientEmail(@RequestParam Integer id,@RequestParam String email) {
+    @PutMapping("/updateEmail")
+    public void updateClientEmail(@RequestParam Integer id, @RequestParam String email) {
         clientService.updateClientEmail(id, email);
     }
 
-    @PutMapping ("/updatePassword")
-    public void updateClientPassword(@RequestParam Integer id,@RequestParam String password) {
+    @PutMapping("/updatePassword")
+    public void updateClientPassword(@RequestParam Integer id, @RequestParam String password) {
         clientService.updateClientPassword(id, password);
     }
 
+    @PutMapping("/updateRole")
+    public void updateRole(@RequestParam Integer id, @RequestParam Roles role) {
+        clientService.updateRole(id, role);
+    }
+
     @DeleteMapping("/{id}")
-    public void  delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Integer id) {
         clientService.deleteById(id);
     }
 }

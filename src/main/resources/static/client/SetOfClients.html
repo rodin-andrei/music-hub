@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .zag {
+            color: blue;
+        }
+        th.zag {
+            color: #ff0000;
+        }
+
+        #idTh {
+            color: #00FF00;
+        }
+
+        h3 {
+            color: #0000FF;
+        }
+
+        tbody tr:nth-child(2n+3) {
+            background-color:#bbbbbb;
+        }
+
+    </style>
+</head>
+<body>
+<h3>SetOfClient</h3>
+<table width="100%" border="1" id="tableData">
+    <tbody>
+    <tr>
+        <th id="idTH" class="zag">id</th>
+        <th class="zag">firstname</th>
+        <th class="zag">lastname</th>
+        <th class="zag">mobilePhone</th>
+        <th class="zag">email</th>
+        <th class="zag">password</th>
+        <th class="zag">Delete Client</th>
+    </tr>
+    </tbody>
+</table>
+
+<script src="client.js"></script>
+</body>
+</html>

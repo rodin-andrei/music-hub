@@ -31,4 +31,6 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<PointOfSale> pointsOfSale;
 
+    private Roles role;
+
 }
